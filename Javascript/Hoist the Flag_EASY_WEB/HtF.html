@@ -1,0 +1,39 @@
+<html>
+ <form id="form" method="get">
+  Password: <input type="text" maxlength="32" name="pw" value="Flag{...}"/>
+  <button onclick="checkPW()">Hoist</button>
+ </form>
+<script>
+function checkPW(){
+	//Declare environment
+	var FlagIsHoisted = true;
+	var smoke = 'fdfa02ecf86feac3801254da57c1c9ba';
+	let mirrors = 'fbe322a89bc0ba531c3f0050e3935f28';
+	smoke = mirrors;
+
+	//Check password
+	try{
+	  	eval("Flag = "+document.forms['form'].elements['pw'].value.replace('Flag{','').replace('}','').replace(/[^a-zA-Z]+/g, "")+";");
+	  	if(document.forms['form'].elements['pw'].value.replace('Flag{','').replace('}','').replace(/[^a-zA-Z]+/g, "").length < 1 || document.forms['form'].elements['pw'].value.replace('Flag{','').replace('}','').replace(/[^a-zA-Z]+/g, "").length > 12){
+	  		FlagIsHoisted=false;
+	  	}
+	  	var JollyRoger = 'fbe322a89bc0ba531c3f0050e3935f28'
+	  	if( JollyRoger === Flag ){
+	  		//A pirate stole your flag.
+	  		FlagIsHoisted=false;
+	  	}
+	}
+	catch(e) {
+	  FlagIsHoisted = false;
+	}
+
+	if(FlagIsHoisted){
+		console.log("Winner!");
+		alert("Winner!");
+	}else{
+		console.log("Flag not hoisted.");
+		alert("Flag not hoisted.");
+	}
+}
+</script>
+</html>
